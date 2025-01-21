@@ -1,8 +1,8 @@
 #EXERCÍCIO 1:
-# numero = int (input('Digite um número positivo: '))
+numero = int (input('Digite um número positivo: '))
 
-# for i in range (0, numero+1):
-#     print (i)
+for i in range (0, numero+1):
+    print (i)
 
 #EXERCÍCIO 2:
 m = []
