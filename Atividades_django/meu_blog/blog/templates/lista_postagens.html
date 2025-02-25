@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagens</title>
+</head>
+<body>
+    <h1>SEUS POSTS</h1>
+    <h4>Todas as suas postagens em um só lugar!</h4>
+
+    <ul>
+        {% for postagem in postagens %}
+        <li>
+            <h2>{{ postagem.titulo }}</h2>
+            <p>{{ postagem.conteudo|slice:":300" }}...</p>
+            <p><a href="#">Leia mais</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+       
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+        }
+
+        p{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h2{
+            line-height: 1.8;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        h4{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+        }
+    </style>
+</body>
+</html>
