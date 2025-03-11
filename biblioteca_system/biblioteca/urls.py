@@ -7,3 +7,5 @@ urlpatterns = [
     path('ler/<int:pk>/', views.livro_update, name='livro_update'),
     path('apagar/<int:pk>/', views.livro_delete, name='livro_delete'),
 ]
+
+

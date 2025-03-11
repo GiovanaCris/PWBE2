@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Delete</title>
+</head>
+<body>
+    <div class="content-page">
+        <h1>Tem certeza que deseja excluir o item {{livro}}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button class="excluir" type="submit">Sim, desejo excluir!</button>
+        </form>
+        <a href="{% url 'livro_read' %}">Não desejo excluir!</a>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 10;
+            padding: 0;
+            font-family: 'Montserrat';
+        }
+
+        .excluir{
+            border: none;
+            padding: 10px 20px;
+            background-color: rgb(226, 199, 252);
+            border-radius: 10px;
+            margin-left: 45px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        a{
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+        }
+
+        .content-page{
+            line-height: 180%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</body>
+</html>
