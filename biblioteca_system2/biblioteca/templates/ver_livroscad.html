@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livro</title>
+</head>
+<body>
+    <div class="content-page">
+        <h1>Biblioteca Bosch</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{livros.as_p}}
+            <button class="confirmar" type="submit">Confirmar</button>
+        </form>
+    </div>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        *{
+            margin: 10;
+            padding: 0;
+            font-family: 'Montserrat';
+        }
+
+        .confirmar{
+            border: none;
+            padding: 10px 20px;
+            background-color: rgb(226, 199, 252);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        label{
+            display: flex;
+            justify-content: center;
+            font-weight: 600;
+            margin-top: 30px;
+        }
+
+        input{
+            padding: 10px 15px;
+            border-radius: 50px;
+        }
+
+        textarea{
+            padding: 10px 15px;
+            border-radius: 20px;
+        }
+
+        .content-page{
+            line-height: 180%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</body>
+</html>

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Livros
 from .forms import LivroForm
-from .forms import BuscarLivros
 
 def livro_read(request):
     livros = Livros.objects.all()
@@ -36,17 +35,60 @@ def livro_delete(request, pk):
     return render(request, 'deletar_livro.html', {'livros': livro})
 
 def pesquisar_livro(request):
-    livros = Livros.objects.all()
+    obj = request.GET.get('obj')
+    livros = []
 
-    titulo = request.GET.get('titulo', '')
-    autor = request.GET.get('autor', '')
+    if obj: 
+        livros = Livros.objects.filter(titulo__icontains=obj)
 
-    if titulo:
-        livros = livros.filter(titulo__icontains=titulo)
-    if autor:
-        livros = livros.filter(autor__icontains=autor)
- 
-    return render(request, 'lista_livros.html', {
-        'titulo': titulo,
-        'autor': autor,
-    })
+    else: 
+        livros = Livros.objects.all()
+
+    return render(request, 'lista_livros.html', {'livros': livros, 'pesquisado': bool(obj)})
+
+
+
+    # obj = request.GET.get('obj') 
+    # livros = [] 
+
+    # if obj: 
+    #     livros = Livros.objects.filter(titulo__icontains=obj) 
+
+    # if not obj:
+    #     livros = Livros.objects.all()
+
+    # return render(request, 'lista_livros.html', {'livros': livros, 'pesquisado': bool(obj)})
+
+    # obj = request.GET.get('obj')
+    # livros = []
+
+    # if obj:
+    #     livros = Livros.objects.filter(titulo__icontains=obj)
+
+    # return render(request, 'lista_livros.html', {'livros': livros, 'pesquisado': bool(obj)})
+
+
+
+    # obj = request.GET.get('obj')
+    # livros = []
+
+    # if obj:
+    #     livros = Livros.objects.filter(titulo__icontains=obj)
+
+    # else:
+    #     livros = Livros.objects.all()
+
+    # return render(request, 'lista_livros.html', {'livros': livros})
+
+
+
+    # print(obj)
+    # if obj:
+    #     livro_read = Livros.objects.filter(name__icontains=obj)
+    
+    # else:
+    #     livro_read = Livros.objects.all()
+
+    # page_number = request.GET.get('page')
+
+    # return render(request, 'lista_livros.html')
